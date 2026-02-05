@@ -1,0 +1,54 @@
+name: Update gold_data.json (yfinance → GitHub Pages)
+
+on:
+  schedule:
+    - cron: "0 22 * * 1-5"   # 固定北京时间 06:00（UTC 22:00），周一到周五
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-gold-data
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance pandas
+
+      - name: Validate required files exist
+        run: |
+          test -f build_gold_data.py || (echo "Missing build_gold_data.py at repo root" && exit 1)
+          test -f gold_data.json || (echo "Missing gold_data.json at repo root" && exit 1)
+
+      - name: Run build script
+        run: |
+          python build_gold_data.py
+
+      - name: Commit & push (only if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add gold_data.json
+          git diff --cached --quiet && echo "No changes in gold_data.json" && exit 0
+
+          git commit -m "Auto update gold_data.json"
+          git push
