@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Gold Pre-market Plan",
+    "symbol": "GC=F",
+    "trade_date": "",
+    "updated_at": ""
+  },
+  "status": {
+    "traffic_light": "NEUTRAL",
+    "traffic_light_note": "—"
+  },
+  "summary": {
+    "bullets": ["—", "—", "—"]
+  },
+  "plan": {
+    "title": "Pre-market Plan",
+    "base_case": "—",
+    "alternate_case": "—",
+    "watchlist": ["—"],
+    "rules": ["—"]
+  },
+  "radar": {
+    "labels": ["Macro", "Rates", "USD", "Flow", "Vol", "Tech"],
+    "values": [0, 0, 0, 0, 0, 0],
+    "max": 100
+  },
+  "drivers": [
+    { "name": "Real Yield", "signal": "NEUTRAL", "note": "—" }
+  ],
+  "risks": [
+    { "risk": "—", "mitigation": "—" }
+  ],
+  "provenance": {
+    "sources": ["yfinance"],
+    "disclaimer": "本页面仅为信息展示。所有状态与计划内容由 gold_data.json 提供，前端不包含任何交易判断逻辑。"
+  },
+  "links": [],
+  "market": {
+    "source": "yfinance",
+    "symbol": "GC=F",
+    "rows": []
+  }
+}
