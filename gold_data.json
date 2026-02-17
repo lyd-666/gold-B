@@ -2,8 +2,8 @@
   "meta": {
     "title": "Gold Pre-market Plan",
     "symbol": "GC=F",
-    "trade_date": "2026-02-16",
-    "updated_at": "2026-02-17 07:01:35"
+    "trade_date": "2026-02-17",
+    "updated_at": "2026-02-18 07:04:58"
   },
   "status": {
     "traffic_light": "NEUTRAL",
@@ -1071,12 +1071,12 @@
         "volume": 484.0
       },
       {
-        "date": "2026-02-16",
+        "date": "2026-02-17",
         "open": 5050.0,
         "high": 5074.39990234375,
-        "low": 4981.89990234375,
-        "close": 5013.10009765625,
-        "volume": 40922.0
+        "low": 4854.2001953125,
+        "close": 4896.10009765625,
+        "volume": 161712.0
       }
     ]
   }
